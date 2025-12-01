@@ -1,21 +1,20 @@
 import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
-import './App.css'
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "./components/core/appSidebar"
 
 
 function App() {
   return (
-    <>
-      <SidebarProvider>
-        <AppSidebar />
-        <main>
+    <SidebarProvider>
+      <AppSidebar />
+      <main className="flex-1 w-full">
+        <div className="p-4">
           <SidebarTrigger />
-          <Outlet />
-        </main>
-      </SidebarProvider>
-    </>
+        </div>
+        <Outlet />
+      </main>
+    </SidebarProvider>
   )
 }
 

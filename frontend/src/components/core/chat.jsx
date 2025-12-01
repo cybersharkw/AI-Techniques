@@ -36,7 +36,7 @@ export function Chat() {
 
     return (
 
-        <div className="w-full max-w--lg mx auto space-y-4">
+        <div className="w-full max-w-lg mx-auto space-y-4">
 
             {/* Chat Window */}
             <section className="border h-80 p-4 overflow-y-auto rounded-lg bg-white shadow">

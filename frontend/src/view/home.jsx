@@ -1,13 +1,9 @@
-import {Chat} from '../components/core/chat'
+import {FrontPage} from '../components/core/frontPage'
 
 export default function home() {
-
     return (
-
         <div>
-            <section>
-                <Chat />
-            </section>
+            <FrontPage />
         </div>
     )
 }
