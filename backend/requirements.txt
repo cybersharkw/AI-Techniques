@@ -1,0 +1,21 @@
+# FastAPI
+fastapi
+uvicorn[standard]
+python-multipart
+
+# LangChain Core
+langchain
+langchain-core
+langchain-community
+langchain_openai
+
+# Embeddings & LLMs
+openai
+
+# Utilities
+pydantic
+pydantic-settings
+python-dotenv
+
+# Optional: Other useful packages
+langsmith
