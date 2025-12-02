@@ -3,7 +3,9 @@ import { createBrowserRouter } from "react-router-dom"
 import App from '../../../App'
 
 const Home = lazy(()=> import('../../../view/home.jsx'))
-
+const Simple = lazy(()=> import('../../../view/simple.jsx'))
+const Memory = lazy(()=> import('../../../view/memory.jsx'))
+const Sequential = lazy(()=> import('../../../view/sequential.jsx'))
 
 const routes = [
 
@@ -13,8 +15,9 @@ const routes = [
         children: [
 
             {path: '', element: <Home />},
-          //  {path: 'project', element: <Project /> },  
-          // {path: 'aboutMe', element: <AboutMe />},
+            {path: '/simple', element: <Simple /> },  
+            {path: '/sequential', element: <Sequential />},
+            {path: '/memory', element: <Memory />},
 
 
         ],

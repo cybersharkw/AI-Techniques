@@ -3,7 +3,7 @@ import {Input} from "../ui/input"
 import {Button} from "../ui/button"
 import { callBackend } from "@/api/callApi.js"
 
-export function Chat() {
+export function Chat(api) {
 
     const [messages, setMessages] = useState([])
     const [input, setInput] = useState("")
@@ -21,7 +21,7 @@ export function Chat() {
     setInput("")
 
     try {
-        const result = await callBackend('/api/langchain/simple', {
+        const result = await callBackend(api, {
             query: currentInput
         })
 
