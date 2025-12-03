@@ -21,26 +21,16 @@ import {
 export function AppSidebar() {
 
   const items = [
-    {
-      title: "Simple",
-      url: "/simple",
-      section: 1
-    },
-    {
-      title: "Sequential",
-      url: "/sequential",
-      section: 1
-    },
-    {
-      title: "Memory",
-      url: "/memory",
-      section: 1
-    },
-    {
-      title: "Settings",
-      url: "#",
-    },
-  ]
+  { title: "Simple", url: "/simple", section: 1 },
+  { title: "Sequential", url: "/sequential", section: 1 },
+  { title: "Memory", url: "/memory", section: 1 },
+
+  { title: "Transform Sentence", url: "/rag-basics/transformSen", section: 2 },
+  { title: "Compare Sentences", url: "/rag-basics/compareSen", section: 2 },
+  { title: "Recommandation System", url: "/rag-basics/recommandation", section: 2 },
+  { title: "Load and search from PDF", url: "/rag-basics/pdfSearch", section: 2 }
+]
+
 
   return (
 
@@ -73,14 +63,38 @@ export function AppSidebar() {
         </Collapsible>
 
         {/* Sprint two*/}
-         <Collapsible defaultOpen className="group/collapsible">
+        <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel>
-              <CollapsibleTrigger>Langchain </CollapsibleTrigger><ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" /></SidebarGroupLabel>
+              <CollapsibleTrigger>RAG-Basics </CollapsibleTrigger><ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" /></SidebarGroupLabel>
             <CollapsibleContent>
               <SidebarGroupContent>
                 <SidebarMenu>
                   {items.filter(item => item.section === 2)
+                    .map(item => (
+                      <SidebarMenuItem key={item.title}>
+                        <SidebarMenuButton asChild>
+                          <a href={item.url}>
+                            <span>{item.title}</span>
+                          </a>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
+
+        {/* Sprint three*/}
+         <Collapsible defaultOpen className="group/collapsible">
+          <SidebarGroup>
+            <SidebarGroupLabel>
+              <CollapsibleTrigger>Langgraph</CollapsibleTrigger><ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" /></SidebarGroupLabel>
+            <CollapsibleContent>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {items.filter(item => item.section === 3)
                     .map(item => (
                       <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton asChild>
