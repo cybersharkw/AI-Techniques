@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -48,19 +49,18 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* Remove blue color from links */
 a {
   font-weight: 500;
-  color: #646cff;
+  color: inherit;
+  /* Changed from #646cff */
   text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
-}
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+a:hover {
+  color: inherit;
+  /* Changed from #535bf2 */
+  opacity: 0.8;
 }
 
 h1 {
@@ -68,6 +68,7 @@ h1 {
   line-height: 1.1;
 }
 
+/* Brown buttons with white text */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -75,16 +76,37 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #8B4513;
+  /* Brown color */
+  color: #ffffff;
+  /* White text */
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  background-color: #A0522D;
+  /* Lighter brown on hover */
+  border-color: #8B4513;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Specific fix for sidebar trigger button */
+button[data-sidebar="trigger"],
+button.sidebar-trigger {
+  background-color: transparent;
+  color: currentColor;
+  border: 1px solid var(--border);
+}
+
+button[data-sidebar="trigger"]:hover,
+button.sidebar-trigger:hover {
+  background-color: var(--accent);
+  border-color: var(--border);
 }
 
 @media (prefers-color-scheme: light) {
@@ -92,11 +114,14 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
-    color: #747bff;
+    opacity: 0.8;
   }
+
   button {
-    background-color: #f9f9f9;
+    background-color: #8B4513;
+    color: #ffffff;
   }
 }
 
@@ -176,7 +201,12 @@ button:focus-visible {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html, body, #root {
+  height: 100%;
 }

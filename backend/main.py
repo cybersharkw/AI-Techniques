@@ -1,8 +1,7 @@
 from fastapi import FastAPI, APIRouter
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
-from api import langchain
-
+from api.langchain import simple_router, sequential_router, memory_router
 
 app = FastAPI(
     title="LangChain Patterns API",
@@ -13,7 +12,7 @@ app = FastAPI(
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -22,8 +21,10 @@ app.add_middleware(
 router = APIRouter()
 
 # Include routers
-app.include_router(langchain.router, prefix="/api/langchain", tags=["Langchain"])
-#app.include_router(langgraph.router, prefix="/api/langgraph", tags=["Advanced Langgraph"])
+app.include_router(simple_router, prefix="/api/langchain", tags=["simple"])
+app.include_router(sequential_router, prefix="/api/langchain", tags=["sequential"])
+app.include_router(memory_router, prefix="/api/langchain", tags=["memory"])
+
 
 @app.get("/")
 async def root():

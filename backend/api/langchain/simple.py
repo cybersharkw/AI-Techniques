@@ -21,7 +21,7 @@ async def simple_llm_chain(request: SimpleChainRequest):
     Pattern: Prompt Template -> LLM -> Output Parser
     Most basic LangChain pattern
     """
-    
+    print(request.query)
     # Define prompt template
     prompt = ChatPromptTemplate.from_messages([
         ("system", "You are a helpful assistant. Answer the user's question clearly and concisely."),

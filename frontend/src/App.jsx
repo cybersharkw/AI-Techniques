@@ -8,12 +8,12 @@ function App() {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className="flex-1 w-full">
         <div className="p-4">
           <SidebarTrigger />
         </div>
-        <Outlet />
-      </main>
+     <div className="flex-1 pt-4">
+          <Outlet />
+        </div>
     </SidebarProvider>
   )
 }
