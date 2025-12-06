@@ -2,6 +2,7 @@ from fastapi import FastAPI, APIRouter
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from api.langchain import simple_router, sequential_router, memory_router
+from api.rag_basics import transformSen_router, compareSen_router, recommandation_router, pdfSearch_router
 
 app = FastAPI(
     title="LangChain Patterns API",
@@ -21,10 +22,14 @@ app.add_middleware(
 router = APIRouter()
 
 # Include routers
-app.include_router(simple_router, prefix="/api/langchain", tags=["simple"])
-app.include_router(sequential_router, prefix="/api/langchain", tags=["sequential"])
-app.include_router(memory_router, prefix="/api/langchain", tags=["memory"])
+app.include_router(simple_router, prefix="/api/langchain", tags=["Langchain"])
+app.include_router(sequential_router, prefix="/api/langchain", tags=["Langchain"])
+app.include_router(memory_router, prefix="/api/langchain", tags=["Langchain"])
 
+app.include_router(transformSen_router, prefix="/api/rag-basics", tags=["Rag-Basics"])
+app.include_router(compareSen_router, prefix="/api/rag-basics", tags=["Rag-Basics"])
+app.include_router(recommandation_router, prefix="/api/rag-basics", tags=["Rag-Basics"])
+app.include_router(pdfSearch_router, prefix="/api/rag-basics", tags=["Rag-Basics"])
 
 @app.get("/")
 async def root():

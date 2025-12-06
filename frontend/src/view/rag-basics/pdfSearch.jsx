@@ -5,7 +5,7 @@ export default function PdfSearch(){
     return(
 
         <div>
-            <Chat api='/api/langchain/memory'/>
+            <Chat api='/api/rag-basics/pdfSearch'/>
         </div>
     )
 }

@@ -5,7 +5,7 @@ export default function transformSen(){
     return(
 
         <div>
-            <Chat api='/api/langchain/memory'/>
+            <Chat api='/api/rag-basics/transformSen'/>
         </div>
     )
 }

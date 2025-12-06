@@ -5,7 +5,7 @@ export default function CompareSen(){
     return(
 
         <div>
-            <Chat api='/api/langchain/memory'/>
+            <Chat api='/api/rag-basics/compareSen'/>
         </div>
     )
 }

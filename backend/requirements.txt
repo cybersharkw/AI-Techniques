@@ -8,7 +8,13 @@ langchain
 langchain-core
 langchain-community
 langchain_openai
-langchain-classic
+
+
+#rag-basics
+sentence-transformers
+scikit-learn
+pymilvus
+
 # Embeddings & LLMs
 openai
 
@@ -16,6 +22,7 @@ openai
 pydantic
 pydantic-settings
 python-dotenv
+pypdf
 
 # Optional: Other useful packages
 langsmith
